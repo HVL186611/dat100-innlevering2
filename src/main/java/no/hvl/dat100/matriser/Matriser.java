@@ -5,7 +5,6 @@ public class Matriser {
 	// a)
 	public static void skrivUt(int[][] matrise) {
 		int[] l;
-		//System.out.println("{");
 		System.out.print("{");
 		for (int i=0; i<matrise.length; i++) {
 			System.out.print(" {");
@@ -15,11 +14,8 @@ public class Matriser {
 				else System.out.print("}");
 			}
 			if (i != matrise.length - 1) System.out.print(", ");
-			//System.out.println();
 		}
 		System.out.println(" }");
-		// TODO
-		//throw new UnsupportedOperationException("Metoden skrivUt ikke implementert");
 	}
 
 	// b)
@@ -46,11 +42,7 @@ public class Matriser {
 				matrise[i][j] *= tall;
 			}
 		}
-		// System.out.print("skalert: "); // dev test
-		// skrivUt(matrise); // dev test
 		return matrise;
-		// TODO
-		//throw new UnsupportedOperationException("Metoden skaler ikke implementert");
 	
 	}
 
@@ -69,6 +61,25 @@ public class Matriser {
 	
 	// e)
 	public static int[][] speile(int[][] matrise) {
+		int length = 0;
+		for (int i = 0; i < matrise.length; i++)
+			if (matrise[i].length > length)
+				length = matrise[i].length;
+		int[][] m = new int[length][];
+		for (int i = 0; i < m.length; i++) {
+			int j = 0;
+			for (int k = 0; k < matrise.length; k++)
+				if (matrise[k].length >= i) j++;
+			m[i] = new int[j];
+		}
+		for (int i = 0; i < matrise.length; i++) {
+			for (int j = 0; j < matrise[i].length; j++) {
+				m[j][i] = matrise[i][j];
+			}
+		}
+		return m;
+	}
+	/*public static int[][] speile(int[][] matrise) {
 		int[][] m = new int[matrise.length][];
 		for (int i=0; i<matrise.length; i++) {
 			m[i] = new int[matrise[i].length];
@@ -77,7 +88,7 @@ public class Matriser {
 			}
 		}
 		return m;
-	}
+	}*/
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {

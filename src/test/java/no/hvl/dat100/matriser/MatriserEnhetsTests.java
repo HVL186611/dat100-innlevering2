@@ -45,6 +45,8 @@ class MatriserEnhetsTests {
 		c[2] = c2;
 		c[3] = c3;
 		
+		// 
+		
 	}
 	
 	@Test
@@ -81,13 +83,17 @@ class MatriserEnhetsTests {
 	
 	@Test
 	void testSpeile() {
-		
+
 		int[][] speilet = { {1,4,7}, {2,5,8}, {3,6,9} };
-			
+		int[][] speilet2 = { {1,4,7}, {2,5,8}, {3,6,9} };
+
 		int[][] speile = Matriser.speile(a);
-		
+		int[][] speile2 = Matriser.speile(c);
+
 		assertFalse(speile == a);
+		assertFalse(speile2 == c);
 		assertArrayEquals(speilet,speile);
+		assertArrayEquals(speilet2,speile2);
 	}
 	
 	@Test 
