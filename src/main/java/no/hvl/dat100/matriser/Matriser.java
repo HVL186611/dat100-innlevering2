@@ -61,6 +61,18 @@ public class Matriser {
 	
 	// e)
 	public static int[][] speile(int[][] matrise) {
+		// Antar at alle tabellene i matrisene er samme størrelse
+		int l = matrise[0].length;
+		int[][] m = new int[l][matrise.length];
+		for (int i = 0; i < matrise.length; i++) {
+			for (int j = 0; j < l; j++) {
+				m[j][i] = matrise[i][j];
+			}
+		}
+		return m;
+		
+		/*
+		 * gammel versjon fra når jeg tenkte tabellene i matrisene kunne ha forskjellig størrelse
 		int length = 0;
 		for (int i = 0; i < matrise.length; i++)
 			if (matrise[i].length > length)
@@ -69,7 +81,7 @@ public class Matriser {
 		for (int i = 0; i < m.length; i++) {
 			int j = 0;
 			for (int k = 0; k < matrise.length; k++)
-				if (matrise[k].length >= i) j++;
+				if (matrise[k].length >= j) j++;  // swap j i in comp
 			m[i] = new int[j];
 		}
 		for (int i = 0; i < matrise.length; i++) {
@@ -77,7 +89,7 @@ public class Matriser {
 				m[j][i] = matrise[i][j];
 			}
 		}
-		return m;
+		return m;*/
 	}
 	/*public static int[][] speile(int[][] matrise) {
 		int[][] m = new int[matrise.length][];
@@ -92,9 +104,13 @@ public class Matriser {
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
-
-		// TODO
-		throw new UnsupportedOperationException("Metoden multipliser ikke implementert");
+		if (a.length != b[0].length)
+			throw new UnsupportedOperationException("Kolonner og rader matcher ikke!");
+		int[][] m = new int[a.length][];
+		
+		// Forstår ikke hva det er de forklarer på wikipedia så skipper denne
+		
+		return m;
 	
 	}
 }
